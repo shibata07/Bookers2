@@ -1,0 +1,37 @@
+<div class = "container">
+
+<div class = "row">
+
+<div class = "col-xs-3">
+
+<%= render 'users/user_info', user: @user, book: @book %>
+
+</div>
+
+<div class = "col-xs-9">
+
+<h1>Users</h1>
+<table class="table">
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+
+  <tr>
+    <td><%= attachment_image_tag user, :profile_image, :fill, 60,60, fallback: "noimage.jpg",size:"60x60" %></td>
+    <td><%= user.name %></td>
+    <td><%= link_to 'Show', user_path(user.id) %></td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
